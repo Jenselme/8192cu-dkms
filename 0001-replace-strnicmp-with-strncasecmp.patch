@@ -1,0 +1,14 @@
+--- a/os_dep/linux/rtw_android.c	2015-11-08 21:35:10.692366304 +0000
++++ a/os_dep/linux/rtw_android.c	2015-11-08 21:36:52.606613798 +0000
+@@ -230,11 +230,7 @@
+ {
+ 	int cmd_num;
+ 	for(cmd_num=0 ; cmd_num<ANDROID_WIFI_CMD_MAX; cmd_num++)
+-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 0, 0))
+ 		if(!strncasecmp(cmdstr , android_wifi_cmd_str[cmd_num], strlen(android_wifi_cmd_str[cmd_num])) )
+-#else
+-		if(0 == strnicmp(cmdstr , android_wifi_cmd_str[cmd_num], strlen(android_wifi_cmd_str[cmd_num])) )
+-#endif
+ 			break;
+ 		
+ 	return cmd_num;
